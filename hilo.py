@@ -23,7 +23,7 @@ class game:
             self.card = random.randint(1,13)
             print(f'The card number is {self.card}')
             if self.check_answer():
-                answer = input('Do you want to try again? [y,n]')
+                answer = input(f'Your points are now {self.points}! Do you want to try again? [y,n]')
                 if answer == "n":
                     print("goodbye")
                     print(f'Your final points are {self.points}!')
@@ -40,13 +40,13 @@ class game:
             if nextCard >= self.card:
                 if x == "h":
                     self.points = self.points + 100
+                else:
+                    self.points = self.points - 75
             else:
-                self.points = self.points - 75
-
-            if x == "h":
-                self.points = self.points - 75
-            else:
-                self.points = self.points + 100
+                if x == "h":
+                    self.points = self.points - 75
+                else:
+                    self.points = self.points + 100
             
             if self.points < 1:
                 return False
